@@ -6,7 +6,7 @@ export async function openDatabase({ url = process.env.DATABASE_URL, dataDir = p
   if (url) {
     assertIndependentDatabase({url});
     const { Pool } = await import('pg');
-    const pool = new Pool({ connectionString: url, max: 8, connectionTimeoutMillis: 15000, idleTimeoutMillis: 30000 });
+    const pool = new Pool({ connectionString: url, max: Number(process.env.DB_POOL_MAX||8), connectionTimeoutMillis: 15000, idleTimeoutMillis: 30000 });
     return { kind: 'postgres', query: (sql, args = []) => pool.query(sql, args), async transaction(fn) {
       const client = await pool.connect();
       try { await client.query('BEGIN'); const result = await fn(client); await client.query('COMMIT'); return result; }
