@@ -2,6 +2,10 @@
 
 这是 2026-10-29 从数字媒体赛线上源码一次性复制的独立网站。
 
+线上前台：https://taoxiang-digital-independent.vercel.app/
+管理后台：https://taoxiang-digital-independent.vercel.app/admin
+模拟后台：https://taoxiang-digital-independent.vercel.app/demo/admin
+
 - 代码单独维护；不向原仓库推送、不配置双向同步。
 - 平台使用手动部署；后续原站或本站修改均不会自动更新另一份。
 - 使用独立数据库与会话密钥；浏览器存储与 Cookie 使用独立名称。

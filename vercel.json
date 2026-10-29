@@ -10,25 +10,15 @@
   "functions": {
     "api/index.js": {
       "maxDuration": 300,
-      "includeFiles": [
-        "server/**",
-        "index.html",
-        "*.js",
-        "*.css",
-        "admin/**",
-        "cloud/**",
-        "assets/**"
-      ],
-      "excludeFiles": [
-        "node_modules/@electric-sql/**",
-        "node_modules/echarts/**",
-        "tests/**",
-        "docs/**",
-        "scripts/**"
-      ]
+      "includeFiles": "{server/**,index.html,*.js,*.css,admin/**,cloud/**,assets/**}",
+      "excludeFiles": "{node_modules/@electric-sql/**,node_modules/echarts/**,tests/**,docs/**,scripts/**}"
     }
   },
   "rewrites": [
+    {
+      "source": "/demo/admin/:path*",
+      "destination": "/admin/:path*"
+    },
     {
       "source": "/api/:path*",
       "destination": "/api"
@@ -67,5 +57,6 @@
         }
       ]
     }
-  ]
+  ],
+  "trailingSlash": false
 }
